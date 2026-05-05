@@ -109,18 +109,18 @@ resource "aws_instance" "rabbitmq" {
 
 }
 
-resource "aws_instance" "redis" {
+resource "aws_instance" "rabbitmq" {
   ami = local.ami_id
   instance_type = "t3.micro"
   subnet_id = local.database_subnet_ids
-  vpc_security_group_ids = [local.redis_sg_id]
+  vpc_security_group_ids = [local.rabbbitmq_sg_id]
 
 
     tags = merge (
   
         local.common_tags,
         {
-            Name = "${local.common_name_suffix}-redis"
+            Name = "${local.common_name_suffix}-rabbitmq"
         }
     )
 
