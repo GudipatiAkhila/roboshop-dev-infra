@@ -27,3 +27,11 @@ resource "aws_security_group_rule" "mongodb_bastion" {
    to_port   = 22
 }
 
+resource "aws_security_group_rule" "redis_bastion" {
+  type                     = "ingress"   # ✅ REQUIRED
+  security_group_id        = local.redis_sg_id  #frontend SG ID
+  source_security_group_id = local.bastion_sg_id
+   from_port = 22
+   protocol  = "tcp"        # ✅ correct field name
+   to_port   = 22
+}
