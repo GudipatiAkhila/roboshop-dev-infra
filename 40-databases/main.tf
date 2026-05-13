@@ -109,25 +109,6 @@ resource "aws_instance" "rabbitmq" {
 
 }
 
-resource "aws_instance" "rabbitmq" {
-  ami = local.ami_id
-  instance_type = "t3.micro"
-  subnet_id = local.database_subnet_id
-  vpc_security_group_ids = [local.rabbbitmq_sg_id]
-
-
-    tags = merge (
-  
-        local.common_tags,
-        {
-            Name = "${local.common_name_suffix}-rabbitmq"
-        }
-    )
-
-
-
-}
-
 resource "terraform_data" "rabbitmq" {
   triggers_replace = [
     aws_instance.rabbitmq.id
