@@ -3,8 +3,8 @@
 component=$1
 dnf install ansible -y
 #ansible-pull -U https://github.com/GudipatiAkhila/ansible-roles-tf.git -e component=$component main.yaml
-REPO_URL = https://github.com/GudipatiAkhila/ansible-roles-tf.git
-REPO_DIR = /opt/roboshop/ansible
+REPO_URL=https://github.com/GudipatiAkhila/ansible-roles-tf.git
+REPO_DIR=/opt/roboshop/ansible
 ANSIBLE_DIR=ansible-roles-tf
 component=$1
 
